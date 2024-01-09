@@ -1,10 +1,10 @@
-import {Box, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio} from '@mui/material';
+import { Box, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio } from '@mui/material';
 import { useState } from 'react';
 
 export const MuiRadio = () => {
     const [value, setValue] = useState('')
 
-    const handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     }
     return (
@@ -17,9 +17,9 @@ export const MuiRadio = () => {
                     value={value}
                     onChange={handleChange}
                 >
-                    <FormControlLabel control={<Radio />} label='0-2' value='0-2'/>
-                    <FormControlLabel control={<Radio />} label='3-5' value='3-5'/>
-                    <FormControlLabel control={<Radio />} label='6-10' value='6-10'/>
+                    <FormControlLabel control={<Radio />} label='0-2' value='0-2' />
+                    <FormControlLabel control={<Radio />} label='3-5' value='3-5' />
+                    <FormControlLabel control={<Radio />} label='6-10' value='6-10' />
                 </RadioGroup>
             </FormControl>
         </Box>

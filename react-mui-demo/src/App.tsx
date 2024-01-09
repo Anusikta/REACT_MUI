@@ -1,20 +1,32 @@
 import './App.css';
-import { MuiButton } from './Components/MuiButton';
-import { MuiSelect } from './Components/MuiSelect';
-import { MuiTextField } from './Components/MuiTextField';
-import { MuiTypo } from './Components/MuiTypo';
-import { MuiRadio } from './Components/MuiRadio';
-import { MuiCheck } from './Components/MuiCheck';
+import { useState } from 'react';
+// import { MuiButton } from './Components/MuiButton';
+// import { MuiSelect } from './Components/MuiSelect';
+// import { MuiTextField } from './Components/MuiTextField';
+// import { MuiTypo } from './Components/MuiTypo';
+// import { MuiRadio } from './Components/MuiRadio';
+// import { MuiCheck } from './Components/MuiCheck';
+import { PasswordInput } from './Components/PasswordInput';
+import { FieldInput } from './Components/FieldInput';
 
 function App() {
+  const [fieldInput, setFieldInput] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div className="App">
-      <MuiTypo />
+      {/* <MuiTypo />
       <MuiButton />
       <MuiTextField />
       <MuiSelect />
       <MuiRadio />
-      <MuiCheck />
+      <MuiCheck /> */}
+      <FieldInput type="text" label="Input field" value ={fieldInput} placeholder="Enter the input" 
+        onChange={setFieldInput} validate={/^[\w\.]{4,}@[a-zA-Z\.]{5,}\.[a-zA-Z]{2,}/}/>
+        
+      <PasswordInput type="password" label="Enter Password" value={password}
+        placeholder="Enter a strong password" onChange={setPassword}
+        validate={/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,16}$/}
+      />
     </div>
   );
 }

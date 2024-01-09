@@ -1,4 +1,4 @@
-import {Box, TextField, MenuItem} from '@mui/material';
+import { Box, TextField, MenuItem } from '@mui/material';
 import { useState } from 'react';
 export const MuiSelect = () => {
     const [countries, setCountries] = useState<string[]>([]);
@@ -8,7 +8,7 @@ export const MuiSelect = () => {
     }
     return (
         <Box width='200px'>
-            <TextField label='Slect country' select
+            <TextField label='Select country' select
                 value={countries} onChange={handleChange} fullWidth
                 SelectProps={{
                     multiple: true

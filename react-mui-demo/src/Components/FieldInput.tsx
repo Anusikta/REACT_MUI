@@ -43,7 +43,7 @@ export const FieldInput: React.FC<FieldInputProps> = ({
             <FormLabel>{label}</FormLabel>
             <Input type={type} value={value} placeholder={placeholder}
                 onChange={handleInputChange}/>
-            <Typography variant="h6" >{isValid ? '' : 'Enter a valid Input'}</Typography>
+            <Typography variant="body1" >{isValid ? '' : 'Enter a valid Input'}</Typography>
 
             </FormControl>
 

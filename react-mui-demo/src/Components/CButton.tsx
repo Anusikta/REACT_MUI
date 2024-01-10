@@ -7,7 +7,7 @@ interface ButtonProps {
     label: string
 }
 
-export const CButton: React.FC<ButtonProps> = ({color, variant, href, label }) => {
+export const CButton: React.FC<ButtonProps> = ({color,href, variant, label }) => {
     return (
         <Button variant={variant} size="medium" color={color} href={href} >{label}</Button>
     )

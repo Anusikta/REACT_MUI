@@ -1,26 +1,35 @@
 import './App.css';
+import logo from './logo.svg';
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 // import { MuiButton } from './Components/MuiButton';
 // import { MuiSelect } from './Components/MuiSelect';
 // import { MuiTextField } from './Components/MuiTextField';
 // import { MuiTypo } from './Components/MuiTypo';
 // import { MuiRadio } from './Components/MuiRadio';
 // import { MuiCheck } from './Components/MuiCheck';
-import { PasswordInput } from './Components/PasswordInput';
-import { FieldInput } from './Components/FieldInput';
 import { Navbar } from './Components/Navbar';
+import { Home } from './Components/Home';
+import { About } from './About';
+import { Signup } from './Components/Signup';
 
 function App() {
-  const [fieldInput, setFieldInput] = useState("");
-  const [password, setPassword] = useState("");
+  
   const navItems = [
     {
       title: 'Home',
-      href : '/'
+      href: '/home',
+      component: Home
     },
     {
-      title: 'Login',
-      href : '/'
+      title: 'About',
+      href: '/about',
+      component: About
+    },
+    {
+      title: 'SignUp',
+      href: '/signup',
+      component: Signup
     }
   ]
   return (
@@ -32,15 +41,18 @@ function App() {
       <MuiRadio />
       <MuiCheck /> */}
 
-      <Navbar logo='react-mui-demo\public\logo512.png' navItems={navItems}/>
+      {/* <Routes>
+        <Route path='home' element={<Home />} ></Route>
+        <Route path='about' element={<About />} ></Route>
+      </Routes> */}
 
-      <FieldInput type="text" label="Input field" value ={fieldInput} placeholder="Enter the input" 
-        onChange={setFieldInput} validate={/^[\w\.]{4,}@[a-zA-Z\.]{5,}\.[a-zA-Z]{2,}/}/>
-        
-      <PasswordInput type="password" label="Enter Password" value={password}
-        placeholder="Enter a strong password" onChange={setPassword}
-        validate={/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,16}$/}
-      />
+      <Navbar logo={logo} navItems={navItems} />
+
+      <Routes>
+        {navItems.map((item, index) => (
+          <Route key={index} path={item.href} element={<item.component />} />
+        ))}
+      </Routes>
 
     </div>
   );
